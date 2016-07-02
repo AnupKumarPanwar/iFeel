@@ -1,0 +1,66 @@
+<ion-view title="Feed" ng-init="init()">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+	
+
+	@media (orientation:landscape)
+	{
+		button
+		{
+			width:100px;
+		}
+
+		#buttonContainer
+		{
+			position: fixed;
+
+			top:15%;
+
+			width: 100%;
+			left:0%;
+		}
+	}
+	
+</style>
+    <ion-content style="background-color:gray">
+        <div class="list card" ng-repeat="friend in feedData.data">
+            <div style="width:100%; height:100%">
+                <center>
+                <h3>{{friend.name}}</h3>
+                <img ng-src="https://graph.facebook.com/{{friend.id}}/picture?type=large"><br>
+                     <!-- <p>{{feedData.id}}</p> -->
+            	</center>
+              <div id="buttonContainer">
+                <button class="button" style="width:35%; float:left; background-color:black; color:white">Enemy</button>
+                <button  class="button" style="width:35%; float:right; background-color:purple; color:white">Friend</button>
+                <br><br><br><br><br><br>
+                <button  class="button" style="width:35%; float:left; background-color:red; color:white">Love</button>
+                <button  class="button" style="width:35%; float:right; background-color:green; color:white">Like</button>
+                </div>
+            </div>
+           <!--  <a href="#" class="item item-icon-left">
+                <i class="icon ion-earth"></i>
+                {{feedData.website}}
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-home"></i>
+                {{feedData.location.name}}
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-heart"></i>
+                {{feedData.relationship_status}}
+            </a>
+             <div >
+                <i class="icon ion-heart"></i>
+                {{feedData}}
+            </div>
+            <div >
+                <i class="icon ion-heart"></i>
+                <p ng-repeat="friend in feedData.friends.data"> {{friend.name}}</p>
+            </div> -->
+        </div>
+    </ion-content>
+</ion-view>
+
+
+
