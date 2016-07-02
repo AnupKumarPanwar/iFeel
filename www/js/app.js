@@ -25,11 +25,16 @@ facebookExample.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/login.html',
             controller: 'LoginController'
         })
+
+
         .state('profile', {
             url: '/profile',
             templateUrl: 'templates/profile.html',
             controller: 'ProfileController'
         })
+
+      
+       
         .state('feed', {
             url: '/feed',
             templateUrl: 'templates/feed.html',
@@ -37,6 +42,18 @@ facebookExample.config(function($stateProvider, $urlRouterProvider) {
         });
     $urlRouterProvider.otherwise('/login');
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 facebookExample.controller("LoginController", function($scope, $cordovaOauth, $localStorage, $location) {
 
@@ -52,12 +69,19 @@ facebookExample.controller("LoginController", function($scope, $cordovaOauth, $l
 
 });
 
+
+
+
+
+
+
 facebookExample.controller("ProfileController", function($scope, $http, $localStorage, $location) {
 
     $scope.init = function() {
         if($localStorage.hasOwnProperty("accessToken") === true) {
-            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status, friends", format: "json" }}).then(function(result) {
+            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status, friends, email", format: "json" }}).then(function(result) {
                 $scope.profileData = result.data;
+                
 
                  var link="http://ifeel.96.lt/makenewaccount.php";
         $http.post(link, result.data).then(function (res){
@@ -81,11 +105,23 @@ facebookExample.controller("ProfileController", function($scope, $http, $localSt
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
 facebookExample.controller("FeedController", function($scope, $http, $localStorage, $location) {
 
  $scope.init = function() {
         if($localStorage.hasOwnProperty("accessToken") === true) {
-            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status, friends", format: "json" }}).then(function(result) {
+            $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status, friends, email", format: "json" }}).then(function(result) {
                 $scope.feedData = result.data;
 
                  

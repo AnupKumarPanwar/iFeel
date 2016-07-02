@@ -4,6 +4,9 @@ Facebook Oauth + PHP in Ionic Framework
 
 Download this example project from GitHub and run the following commands:
 
+	$cordova platform add android
+	$cordova plugin add cordova-plugin-inappbrowser
+	$cordova plugin add cordova-plugin-whitelist
     $ionic run android
 
 The above commands will add the Android build platform and install the required Apache InAppBrowser plugin.
