@@ -1,4 +1,5 @@
-<ion-view title="Feed" ng-init="init()">
+<ion-view title="Play" ng-init="init()">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
 	
@@ -12,7 +13,7 @@
 
 		#buttonContainer
 		{
-			position: fixed;
+			position: absolute;
 
 			top:15%;
 
@@ -23,41 +24,30 @@
 	
 </style>
     <ion-content style="background-color:gray">
-        <div class="list card" ng-repeat="friend in feedData.friends.data">
-            <div style="width:100%; height:100%">
+        <div class="list card" ng-repeat="friend in feedData.friends.data" id="{{friend.id}}" ng-style='{
+    "position" : "absolute",
+    "top" : "0px",
+    "left" : "0px",
+    "width" : "95%",
+
+  }' ng-hide="friend.hide">
+            <div style="width:100%; height:100%; min-height:520px;">
                 <center>
                 <h3>{{friend.name}}</h3>
-                <img ng-src="https://graph.facebook.com/{{friend.id}}/picture?type=large"><br>
+                <img ng-src="https://graph.facebook.com/{{friend.id}}/picture?type=large" ng-click="hideMe(friend, {{friend.id}}, 'No Feeling')"><br>
                      <!-- <p>{{feedData.id}}</p> -->
             	</center>
               <div id="buttonContainer">
-                <button class="button" style="width:35%; float:left; background-color:black; color:white">Enemy</button>
-                <button  class="button" style="width:35%; float:right; background-color:purple; color:white">Friend</button>
+                <button class="button" style="width:35%; float:left; background-color:black; color:white" ng-click="hideMe(friend, {{friend.id}}, 'Enemy')">Enemy</button>
+                <button  class="button" style="width:35%; float:right; background-color:purple; color:white" ng-click="hideMe(friend, {{friend.id}}, 'Friend')">Friend</button>
                 <br><br><br><br><br><br>
-                <button  class="button" style="width:35%; float:left; background-color:red; color:white">Love</button>
-                <button  class="button" style="width:35%; float:right; background-color:green; color:white">Like</button>
+                <button  class="button" style="width:35%; float:left; background-color:red; color:white" ng-click="hideMe(friend, {{friend.id}}, 'Love')">Love</button>
+                <button  class="button" style="width:35%; float:right; background-color:green; color:white" ng-click="hideMe(friend, {{friend.id}}, 'Like')">Like</button>
                 </div>
             </div>
-           <!--  <a href="#" class="item item-icon-left">
-                <i class="icon ion-earth"></i>
-                {{feedData.website}}
-            </a>
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-home"></i>
-                {{feedData.location.name}}
-            </a>
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-heart"></i>
-                {{feedData.relationship_status}}
-            </a>
-             <div >
-                <i class="icon ion-heart"></i>
-                {{feedData}}
-            </div>
-            <div >
-                <i class="icon ion-heart"></i>
-                <p ng-repeat="friend in feedData.friends.data"> {{friend.name}}</p>
-            </div> -->
+
+
+
         </div>
     </ion-content>
 </ion-view>
