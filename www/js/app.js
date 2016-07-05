@@ -159,7 +159,7 @@ facebookExample.controller("EnemyController", function($scope, $http, $localStor
                 $scope.profileData = result.data;
 
                 var myid=result.data.id;
-                var umyid='u'.$myid;
+                var umyid='u'+myid;
 
                 var whosefeeling={"id":umyid};
                 
@@ -200,7 +200,7 @@ facebookExample.controller("FriendController", function($scope, $http, $localSto
                 $scope.profileData = result.data;
 
                 var myid=result.data.id;
-                var umyid='u'.$myid;
+                var umyid='u'+myid;
 
                 var whosefeeling={"id":umyid};
                 
@@ -244,7 +244,7 @@ facebookExample.controller("LikeController", function($scope, $http, $localStora
                 $scope.profileData = result.data;
 
                 var myid=result.data.id;
-                var umyid='u'.$myid;
+                var umyid='u'+myid;
 
                 var whosefeeling={"id":umyid};
                 
@@ -289,16 +289,14 @@ facebookExample.controller("LoveController", function($scope, $http, $localStora
                 $scope.profileData = result.data;
 
                 var myid=result.data.id;
-                var umyid='u'.$myid;
+                var umyid='u'+myid;
 
-                var whosefeeling={"id":umyid};
+                var whosefeeling={"id" : umyid};
                 
 
                  var link="http://ifeel.96.lt/getfeelings.php";
-        $http.post(link, whosefeeling).then(function (res){
-        $scope.feelings = res;
-
-
+        $http.post(link, whosefeeling).then(function (result){
+        $scope.feelings = result;
         });
 
             }, function(error) {
