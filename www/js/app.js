@@ -76,6 +76,14 @@ facebookExample.config(function($stateProvider, $urlRouterProvider) {
 
 
 
+facebookExample.controller("LogoutController", function($scope, $cordovaOauth, $localStorage, $location) {
+
+    $scope.logout = function() {
+        FB.logout();
+    };
+
+});
+
 
 
 
