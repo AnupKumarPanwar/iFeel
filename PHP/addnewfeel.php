@@ -18,15 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 	exit(0);
 	}
 
-$servername = "mysql.hostinger.in";
-$username = "u589116098_anup";
-$password = "biappanwar";
-$dbname = "u589116098_ifeel";
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "test";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
